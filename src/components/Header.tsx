@@ -3,22 +3,22 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, LogOut, User } from "lucide-react";
+import { Menu, LogOut, User, FileText } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
 
 export function Header() {
   const { user, isAuthenticated, logout } = useAuthStore();
 
   return (
-    <header className="h-16 px-6 flex items-center justify-between sticky top-0 z-10 bg-white mb-12">
-      <div className="flex items-center">
-        <Link href="/" className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-          <svg className="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-            <polyline points="14 2 14 8 20 8" />
-            <line x1="16" y1="13" x2="8" y2="13" />
-            <line x1="16" y1="17" x2="8" y2="17" />
-          </svg>
+    <header className="h-16 px-6 flex items-center justify-between sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+      <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <FileText className="w-4.5 h-4.5 text-primary" />
+          </div>
+          <span className="text-lg font-semibold tracking-tight hidden sm:inline">
+            TaxGrievance<span className="text-primary">Pro</span>
+          </span>
         </Link>
       </div>
 
@@ -49,7 +49,7 @@ export function Header() {
               </>
             ) : (
               <>
-                <Button variant="secondary" asChild>
+                <Button variant="outline" asChild>
                   <Link href="/login">Log In</Link>
                 </Button>
                 <Button asChild>
@@ -62,31 +62,43 @@ export function Header() {
       </Sheet>
 
       {/* Desktop Menu */}
-      <div className="items-center gap-4 hidden md:flex">
+      <nav className="items-center gap-6 hidden md:flex">
+        <Link
+          href="/#how-it-works"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          How It Works
+        </Link>
+        <Link
+          href="/#features"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Features
+        </Link>
+        <div className="h-4 w-px bg-border" />
         {isAuthenticated && user ? (
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 px-3 py-1.5 bg-muted rounded-full">
-              <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center">
-                <User className="w-4 h-4 text-primary" />
+              <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center">
+                <User className="w-3.5 h-3.5 text-primary" />
               </div>
               <span className="text-sm font-medium">{user.name}</span>
             </div>
             <Button variant="ghost" size="sm" onClick={logout}>
-              <LogOut className="w-4 h-4 mr-2" />
-              Log Out
+              <LogOut className="w-4 h-4" />
             </Button>
           </div>
         ) : (
           <div className="flex items-center gap-2">
-            <Button variant="secondary" size="sm" asChild>
+            <Button variant="ghost" size="sm" asChild>
               <Link href="/login">Log In</Link>
             </Button>
             <Button size="sm" asChild>
-              <Link href="/signup">Sign Up</Link>
+              <Link href="/signup">Get Started</Link>
             </Button>
           </div>
         )}
-      </div>
+      </nav>
     </header>
   );
 }

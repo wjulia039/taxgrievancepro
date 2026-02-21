@@ -4,17 +4,32 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuthStore } from "@/store/authStore";
 import { usePaymentStore } from "@/store/paymentStore";
-import { ArrowLeft, CreditCard, Lock, Check, Loader2, Shield } from "lucide-react";
+import {
+  ArrowLeft,
+  CreditCard,
+  Lock,
+  Check,
+  Loader2,
+  Shield,
+} from "lucide-react";
 
 export default function PaymentPage() {
   const router = useRouter();
-  const { isAuthenticated, user } = useAuthStore();
-  const { setPaymentComplete, isProcessing, setProcessing, hasPaid } = usePaymentStore();
+  const { isAuthenticated } = useAuthStore();
+  const { setPaymentComplete, isProcessing, setProcessing, hasPaid } =
+    usePaymentStore();
 
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
@@ -22,7 +37,6 @@ export default function PaymentPage() {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
 
-  // Redirect if already paid
   if (hasPaid) {
     router.push("/payment/success");
     return null;
@@ -71,21 +85,19 @@ export default function PaymentPage() {
     }
 
     setProcessing(true);
-
-    // Simulate payment processing
     await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    // Simulate successful payment
     const paymentId = "pay_" + Math.random().toString(36).substring(7);
     setPaymentComplete(paymentId);
-
     router.push("/payment/success");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex flex-col">
-      <header className="h-16 px-6 flex items-center sticky top-0 z-10 bg-white border-b">
-        <Link href="/appeal" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+    <div className="min-h-screen flex flex-col">
+      <header className="h-16 px-6 flex items-center sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+        <Link
+          href="/appeal"
+          className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+        >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Appeal</span>
         </Link>
@@ -94,16 +106,20 @@ export default function PaymentPage() {
       <div className="flex-1 flex items-center justify-center p-4">
         <div className="w-full max-w-lg">
           {/* Order Summary */}
-          <Card className="mb-6 bg-primary/5 border-primary/20">
+          <Card className="mb-6 border-primary/20 bg-primary/5">
             <CardContent className="p-6">
               <div className="flex justify-between items-center">
                 <div>
                   <h3 className="font-semibold">Property Tax Appeal Letter</h3>
-                  <p className="text-sm text-muted-foreground">Professional appeal document</p>
+                  <p className="text-sm text-muted-foreground">
+                    Professional appeal document
+                  </p>
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-bold text-primary">$19.99</p>
-                  <p className="text-xs text-muted-foreground">One-time payment</p>
+                  <p className="text-xs text-muted-foreground">
+                    One-time payment
+                  </p>
                 </div>
               </div>
               <div className="mt-4 pt-4 border-t border-primary/20 space-y-2">
@@ -124,7 +140,7 @@ export default function PaymentPage() {
           </Card>
 
           {/* Payment Form */}
-          <Card className="shadow-xl border-0">
+          <Card className="border-border">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <CreditCard className="w-5 h-5" />
@@ -137,14 +153,18 @@ export default function PaymentPage() {
             <form onSubmit={handleSubmit}>
               <CardContent className="space-y-4">
                 {error && (
-                  <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg border border-red-200">
+                  <div className="bg-destructive/10 text-destructive text-sm p-3 rounded-lg border border-destructive/20">
                     {error}
                   </div>
                 )}
 
                 {!isAuthenticated && (
-                  <div className="bg-yellow-50 text-yellow-700 text-sm p-3 rounded-lg border border-yellow-200">
-                    Please <Link href="/login" className="font-medium underline">sign in</Link> to continue with payment.
+                  <div className="bg-yellow-500/10 text-yellow-500 text-sm p-3 rounded-lg border border-yellow-500/20">
+                    Please{" "}
+                    <Link href="/login" className="font-medium underline">
+                      sign in
+                    </Link>{" "}
+                    to continue with payment.
                   </div>
                 )}
 
@@ -160,19 +180,15 @@ export default function PaymentPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="cardNumber">Card Number</Label>
-                  <div className="relative">
-                    <Input
-                      id="cardNumber"
-                      placeholder="4242 4242 4242 4242"
-                      value={cardNumber}
-                      onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
-                      maxLength={19}
-                    />
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 flex gap-1">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/100px-Visa_Inc._logo.svg.png" alt="Visa" className="h-4" />
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/100px-Mastercard-logo.svg.png" alt="Mastercard" className="h-4" />
-                    </div>
-                  </div>
+                  <Input
+                    id="cardNumber"
+                    placeholder="4242 4242 4242 4242"
+                    value={cardNumber}
+                    onChange={(e) =>
+                      setCardNumber(formatCardNumber(e.target.value))
+                    }
+                    maxLength={19}
+                  />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -182,7 +198,9 @@ export default function PaymentPage() {
                       id="expiry"
                       placeholder="MM/YY"
                       value={expiry}
-                      onChange={(e) => setExpiry(formatExpiry(e.target.value))}
+                      onChange={(e) =>
+                        setExpiry(formatExpiry(e.target.value))
+                      }
                       maxLength={5}
                     />
                   </div>
@@ -192,7 +210,9 @@ export default function PaymentPage() {
                       id="cvc"
                       placeholder="123"
                       value={cvc}
-                      onChange={(e) => setCvc(e.target.value.replace(/[^0-9]/g, ""))}
+                      onChange={(e) =>
+                        setCvc(e.target.value.replace(/[^0-9]/g, ""))
+                      }
                       maxLength={4}
                     />
                   </div>
@@ -219,7 +239,9 @@ export default function PaymentPage() {
                 </Button>
                 <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                   <Shield className="w-4 h-4" />
-                  <span>Secured by Stripe. Your payment information is encrypted.</span>
+                  <span>
+                    Secured by Stripe. Your payment information is encrypted.
+                  </span>
                 </div>
               </CardFooter>
             </form>
@@ -227,7 +249,10 @@ export default function PaymentPage() {
 
           <p className="text-center text-xs text-muted-foreground mt-4">
             By completing this purchase, you agree to our{" "}
-            <Link href="/terms" className="underline">Terms of Service</Link>.
+            <Link href="/terms" className="underline">
+              Terms of Service
+            </Link>
+            .
           </p>
         </div>
       </div>

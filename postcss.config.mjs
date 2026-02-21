@@ -1,12 +1,8 @@
-[images]
-  remote_images = ["https://source.unsplash.com/.*", "https://images.unsplash.com/.*", "https://ext.same-assets.com/.*", "https://ugc.same-assets.com/.*"]
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    tailwindcss: {},
+  },
+};
 
-[build]
-  command = "bun run build"
-  publish = ".next"
-
-[build.environment]
-  NETLIFY_NEXT_PLUGIN_SKIP = "true"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+export default config;

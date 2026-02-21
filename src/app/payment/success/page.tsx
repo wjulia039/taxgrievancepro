@@ -13,12 +13,12 @@ export default function PaymentSuccessPage() {
 
   if (!hasPaid) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center p-4">
-        <Card className="max-w-md w-full">
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <Card className="max-w-md w-full border-border">
           <CardContent className="p-8 text-center">
             <h2 className="text-xl font-bold mb-4">No Payment Found</h2>
             <p className="text-muted-foreground mb-6">
-              You haven't completed a payment yet.
+              You haven&apos;t completed a payment yet.
             </p>
             <Button asChild>
               <Link href="/payment">Go to Payment</Link>
@@ -30,20 +30,22 @@ export default function PaymentSuccessPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center p-4">
-      <Card className="max-w-lg w-full shadow-xl border-0">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <Card className="max-w-lg w-full border-border">
         <CardContent className="p-8">
           <div className="text-center mb-8">
-            <div className="w-20 h-20 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <CheckCircle2 className="w-10 h-10 text-green-600" />
+            <div className="w-20 h-20 mx-auto bg-green-500/10 rounded-full flex items-center justify-center mb-4">
+              <CheckCircle2 className="w-10 h-10 text-green-500" />
             </div>
-            <h1 className="text-2xl font-bold text-green-600 mb-2">Payment Successful!</h1>
+            <h1 className="text-2xl font-bold text-green-500 mb-2">
+              Payment Successful!
+            </h1>
             <p className="text-muted-foreground">
               Thank you for your purchase, {user?.name || "Customer"}!
             </p>
           </div>
 
-          <div className="bg-muted/50 rounded-xl p-6 mb-6">
+          <div className="bg-muted/50 rounded-xl p-6 mb-6 border border-border">
             <h3 className="font-semibold mb-4 flex items-center gap-2">
               <FileText className="w-5 h-5 text-primary" />
               Order Details
