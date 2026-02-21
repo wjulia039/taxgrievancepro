@@ -1,160 +1,131 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 
 export default function HomePage() {
   return (
-    <div className="bg-hero">
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-6">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="grid size-10 place-items-center rounded-2xl border bg-card text-sm font-semibold">
-            TG
+    <div className="min-h-screen bg-hero flex flex-col">
+      <header className="h-16 px-6 flex items-center justify-between sticky top-0 z-10 bg-white border-b">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+            <span className="text-primary font-bold text-sm">TG</span>
           </div>
-          <div className="leading-tight">
-            <div className="font-heading text-base font-semibold">
-              TaxGrievancePro
-            </div>
-            <div className="text-xs text-muted-foreground">
-              Local Property Tax Appeal Guidance
-            </div>
-          </div>
-        </Link>
-
-        <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-          <Link className="hover:text-foreground" href="#how-it-works">
-            How it works
+          <span className="font-semibold hidden sm:inline">TaxGrievancePro</span>
+        </div>
+        <nav className="hidden sm:flex items-center gap-6 text-sm text-muted-foreground">
+          <Link href="/report" className="hover:text-foreground transition-colors">
+            Report preview
           </Link>
-          <Link className="hover:text-foreground" href="#faq">
-            FAQ
+          <Link href="/login" className="hover:text-foreground transition-colors">
+            Log in
           </Link>
-          <Button asChild className="rounded-2xl">
+          <Button asChild>
             <Link href="/kit">Start Free Eligibility Review</Link>
           </Button>
         </nav>
-
-        <div className="flex items-center gap-2 md:hidden">
-          <Button asChild className="rounded-2xl">
-            <Link href="/kit">Start Free Eligibility Review</Link>
+        <div className="sm:hidden">
+          <Button asChild size="sm">
+            <Link href="/kit">Start</Link>
           </Button>
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-6xl px-5 pb-16 pt-8">
-        <section className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-xs text-muted-foreground">
-              Suffolk County, NY • DIY appeal kit
+      <div className="container mx-auto max-w-4xl flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col px-2 md:px-0 py-10">
+          <div className="relative text-center mb-8 px-4">
+            <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-2xl flex items-center justify-center">
+              <svg
+                className="w-8 h-8 text-primary"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
             </div>
-            <h1 className="mt-5 font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
-              Prepare a submission-ready property tax appeal kit for Suffolk
-              County.
+            <h1 className="text-2xl md:text-4xl font-bold mb-2">
+              Suffolk County Property Tax Appeal Kit
             </h1>
-            <p className="mt-4 max-w-xl text-base text-muted-foreground">
-              Provide your property and assessment details, review comparable
-              sales, and generate a clean PDF kit you can review before filing.
+            <p className="text-muted-foreground text-sm md:text-lg">
+              Prepare a submission-ready appeal kit with a clear comps table and
+              a clean PDF.
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button asChild size="lg" className="rounded-2xl">
-                <Link href="/kit">Start Free Eligibility Review</Link>
-              </Button>
-              <div className="text-sm text-muted-foreground">
-                Free for first users • No credit card
-              </div>
-            </div>
+          </div>
 
-            <div id="how-it-works" className="mt-10 grid gap-3 sm:grid-cols-3">
-              <Card className="rounded-3xl border-foreground/10 bg-card/80 p-5">
-                <div className="text-sm font-semibold">
+          <div className="space-y-10 md:bg-background min-[915px]:rounded-lg min-[915px]:shadow-lg p-4 md:p-8">
+            <section className="grid md:grid-cols-3 gap-4">
+              <div className="bg-white rounded-2xl shadow-sm border border-border p-6">
+                <div className="font-semibold mb-1">
                   1) Provide property &amp; assessment details
                 </div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  Confirm the basic facts from your notice.
+                <div className="text-sm text-muted-foreground">
+                  Enter the facts from your notice.
                 </div>
-              </Card>
-              <Card className="rounded-3xl border-foreground/10 bg-card/80 p-5">
-                <div className="text-sm font-semibold">
+              </div>
+              <div className="bg-white rounded-2xl shadow-sm border border-border p-6">
+                <div className="font-semibold mb-1">
                   2) Review or add comparable sales
                 </div>
-                <div className="mt-1 text-sm text-muted-foreground">
+                <div className="text-sm text-muted-foreground">
                   Add recent sales that support your position.
                 </div>
-              </Card>
-              <Card className="rounded-3xl border-foreground/10 bg-card/80 p-5">
-                <div className="text-sm font-semibold">
+              </div>
+              <div className="bg-white rounded-2xl shadow-sm border border-border p-6">
+                <div className="font-semibold mb-1">
                   3) Generate and review your appeal kit
                 </div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  Download a PDF you can review before submission.
+                <div className="text-sm text-muted-foreground">
+                  Download a PDF for review before submission.
                 </div>
-              </Card>
-            </div>
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              <Card className="rounded-3xl border-foreground/10 bg-card/70 p-5">
-                <div className="text-sm font-semibold">Local focus</div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  Built specifically for Suffolk County, NY.
-                </div>
-              </Card>
-              <Card className="rounded-3xl border-foreground/10 bg-card/70 p-5">
-                <div className="text-sm font-semibold">Privacy-first</div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  Minimize what you share. No scraping.
-                </div>
-              </Card>
-              <Card className="rounded-3xl border-foreground/10 bg-card/70 p-5">
-                <div className="text-sm font-semibold">Clear process</div>
-                <div className="mt-1 text-sm text-muted-foreground">
-                  Simple steps, readable output, no fluff.
-                </div>
-              </Card>
-            </div>
-
-            <div id="faq" className="mt-10 rounded-3xl border bg-card/60 p-6">
-              <div className="text-sm font-semibold">FAQ (beta)</div>
-              <div className="mt-2 text-sm text-muted-foreground">
-                This is an informational guidance tool. Always review your kit
-                before submission, and consult a professional if needed.
               </div>
-            </div>
-          </div>
+            </section>
 
-          <div className="lg:col-span-5">
-            <Card className="rounded-3xl border-foreground/10 bg-card/70 p-6 backdrop-blur">
-              <div className="text-sm font-semibold">What you get</div>
-              <div className="mt-3 grid gap-2 text-sm text-muted-foreground">
-                <div>• Subject property summary</div>
-                <div>• Comparable sales table</div>
-                <div>• Price-per-sqft calculations</div>
-                <div>• A clean appeal kit PDF</div>
-                <div>• Evidence checklist + next steps</div>
-              </div>
-              <div className="mt-6 rounded-2xl border bg-background p-4 text-xs text-muted-foreground">
+            <section className="text-center">
+              <Button asChild size="lg" className="px-10">
+                <Link href="/kit">Start Free Eligibility Review</Link>
+              </Button>
+              <div className="mt-3 text-xs text-muted-foreground">
                 Informational guidance tool. Not legal advice.
               </div>
-            </Card>
-          </div>
-        </section>
-      </main>
+            </section>
 
-      <footer className="mx-auto w-full max-w-6xl px-5 pb-10 text-xs text-muted-foreground">
-        <div className="flex flex-wrap items-center gap-2">
-          <Link className="underline-offset-4 hover:underline" href="/privacy">
-            Privacy
-          </Link>
-          <span>•</span>
-          <Link className="underline-offset-4 hover:underline" href="/terms">
-            Terms
-          </Link>
-          <span>•</span>
-          <Link className="underline-offset-4 hover:underline" href="/disclaimer">
-            Disclaimer
-          </Link>
-          <span>•</span>
-          <span>Informational guidance tool. Not legal advice.</span>
-        </div>
-      </footer>
+            <aside className="text-center text-sm text-muted-foreground space-y-2 border-t px-2 pt-8">
+              <p>
+                <strong>Important Notice:</strong> Review any generated materials
+                carefully before submission.
+              </p>
+              <p>
+                <strong>Deadline Reminder:</strong> Many appeals must be filed
+                within a short window after receiving your notice. Confirm
+                Suffolk County deadlines.
+              </p>
+            </aside>
+          </div>
+
+          <footer className="text-center text-xs text-muted-foreground mt-10">
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <Link className="hover:underline" href="/privacy">
+                Privacy
+              </Link>
+              <span>•</span>
+              <Link className="hover:underline" href="/terms">
+                Terms
+              </Link>
+              <span>•</span>
+              <Link className="hover:underline" href="/disclaimer">
+                Disclaimer
+              </Link>
+              <span>•</span>
+              <span>Informational guidance tool. Not legal advice.</span>
+            </div>
+          </footer>
+        </main>
+      </div>
     </div>
   );
 }
