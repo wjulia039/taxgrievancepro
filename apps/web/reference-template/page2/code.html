@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaxAppeal - Property Information</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-[#151c2b] px-6 lg:px-10 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<div class="flex items-center justify-center size-8 rounded bg-primary/10 text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">TaxAppeal</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Pricing</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">How it Works</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium" href="#">Contact</a>
+</nav>
+<button class="flex items-center gap-2 justify-center rounded-lg h-10 px-6 bg-primary hover:bg-blue-700 text-white text-sm font-bold leading-normal transition-colors shadow-sm shadow-primary/30">
+<span class="material-symbols-outlined text-[18px]">login</span>
+<span>Sign In</span>
+</button>
+</div>
+<button class="md:hidden flex items-center justify-center text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex justify-center py-10 px-4 sm:px-6">
+<div class="flex flex-col max-w-[800px] w-full gap-8">
+<!-- Progress Section -->
+<div class="bg-white dark:bg-[#151c2b] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6">
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider mb-1">Step 1 of 3</p>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold">Property Info</h3>
+</div>
+<span class="text-primary text-sm font-bold bg-primary/10 px-3 py-1 rounded-full">33% Completed</span>
+</div>
+<div class="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500 ease-out" style="width: 33%"></div>
+</div>
+<div class="flex justify-between text-xs text-slate-500 dark:text-slate-400 font-medium pt-1">
+<span class="text-primary font-bold">Property Info</span>
+<span>Owner Details</span>
+<span>Review &amp; Submit</span>
+</div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="bg-white dark:bg-[#151c2b] rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 sm:p-10">
+<div class="mb-8">
+<h1 class="text-slate-900 dark:text-white text-3xl font-extrabold tracking-tight mb-2">Property Information</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Enter your property details below to get started with your free assessment.</p>
+</div>
+<form class="flex flex-col gap-6">
+<!-- Address Input -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-900 dark:text-slate-200 text-sm font-bold" for="address">Property Address</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">home_pin</span>
+</div>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-900 dark:text-white pl-10 pr-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-shadow placeholder:text-slate-400" id="address" name="address" placeholder="123 Main St, City, State, ZIP" type="text"/>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-500">We use this to verify the county records.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Parcel Number Input -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-900 dark:text-slate-200 text-sm font-bold" for="apn">
+                                Parcel Number (APN) 
+                                <span class="text-slate-400 font-normal ml-1">(Optional)</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">tag</span>
+</div>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-900 dark:text-white pl-10 pr-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-shadow placeholder:text-slate-400" id="apn" name="apn" placeholder="e.g., 123-456-789" type="text"/>
+</div>
+<a class="text-xs text-primary hover:underline font-medium" href="#">Where can I find this?</a>
+</div>
+<!-- Assessed Value Input -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-900 dark:text-slate-200 text-sm font-bold" for="value">Current Assessed Value</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">attach_money</span>
+</div>
+<input class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-900 dark:text-white pl-10 pr-4 py-3 focus:ring-2 focus:ring-primary focus:border-primary transition-shadow placeholder:text-slate-400" id="value" name="value" placeholder="e.g., 500,000" type="text"/>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-500">From your most recent tax bill.</p>
+</div>
+</div>
+<!-- Property Type Selection -->
+<div class="flex flex-col gap-3 mt-2">
+<label class="text-slate-900 dark:text-slate-200 text-sm font-bold">Property Type</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="property_type" type="radio"/>
+<div class="rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:bg-slate-50 dark:hover:bg-slate-700 peer-checked:border-primary peer-checked:bg-primary/5 peer-checked:ring-1 peer-checked:ring-primary transition-all flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-slate-400 peer-checked:text-primary text-3xl">house</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200 peer-checked:text-primary">Single Family</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="property_type" type="radio"/>
+<div class="rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:bg-slate-50 dark:hover:bg-slate-700 peer-checked:border-primary peer-checked:bg-primary/5 peer-checked:ring-1 peer-checked:ring-primary transition-all flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-slate-400 peer-checked:text-primary text-3xl">apartment</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200 peer-checked:text-primary">Condo / Townhome</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="property_type" type="radio"/>
+<div class="rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 hover:bg-slate-50 dark:hover:bg-slate-700 peer-checked:border-primary peer-checked:bg-primary/5 peer-checked:ring-1 peer-checked:ring-primary transition-all flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-slate-400 peer-checked:text-primary text-3xl">storefront</span>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-200 peer-checked:text-primary">Commercial</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 dark:border-slate-700">
+<button class="group flex items-center gap-2 px-6 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-bold transition-colors" type="button">
+<span class="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                            Back
+                        </button>
+<button class="group flex items-center gap-2 px-8 py-3 rounded-lg bg-primary hover:bg-blue-700 text-white font-bold shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all transform hover:-translate-y-0.5" type="button">
+                            Next: Owner Details
+                            <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Trust Indicators -->
+<div class="flex flex-col sm:flex-row justify-center items-center gap-6 text-slate-400 dark:text-slate-500 text-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+<span>256-bit Secure Encryption</span>
+</div>
+<div class="hidden sm:block w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+<span>Privacy Guaranteed</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Electronic Signature and Declaration - TaxAppeal Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom checkbox style adjustment for the SVG tick */
+        input[type="checkbox"]:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-8 rounded bg-primary text-white">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">TaxAppeal Pro</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">My Properties</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Reports</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center justify-center h-9 px-4 text-sm font-bold text-primary bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors">
+                    Sign Out
+                </button>
+<div class="relative size-9 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700">
+<img alt="User profile" class="object-cover size-full" data-alt="User profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTyOI2gZLCoI6x25NiL67mGBV4N0j_kiX4U3m-ybUdJesXtwu4aLCVSTmVxqH0fGSKpcRafWkZiOu7zNVNDR8i-HnL7nylrFcsxCd9m036u2LbQgKk3oB6CGZh5xWH8X0AwsYVImvGWC7Iv1pbQgjhE2juyIp4jzwym9O8lklV-bRUZMQYsmiuppB1EArHlBBZZeJ-vIpZNsFx6mdoBS2Nz02BAuWoC-Ez9mvszRyiHzyeoeUpfwY31bIeR1nLH0q2W00q6NfgZNLv"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<!-- Page Header -->
+<div class="mb-10">
+<div class="flex items-center gap-2 mb-2 text-primary font-medium text-sm">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to Appeal Overview</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-3">Electronic Signature &amp; Declaration</h2>
+<p class="text-slate-500 dark:text-slate-400 max-w-2xl text-lg">
+                Please review the legal declaration below carefully. Your digital signature is required to authorize the appeal submission to the county board.
+            </p>
+</div>
+<div class="grid lg:grid-cols-3 gap-8">
+<!-- Left Column: Legal Document -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Declaration Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="bg-slate-50 dark:bg-slate-800/50 px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">Declaration of Truth</h3>
+</div>
+<div class="p-6 md:p-8 space-y-6">
+<div class="prose prose-slate dark:prose-invert max-w-none">
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                                I, the undersigned, hereby declare under penalty of perjury that the information provided in this property tax appeal application, including all attached schedules and statements, is true, correct, and complete to the best of my knowledge and belief.
+                            </p>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mt-4">
+                                I understand that:
+                            </p>
+<ul class="list-disc pl-5 mt-2 space-y-2 text-slate-700 dark:text-slate-300 marker:text-primary">
+<li>Any false statements made herein may result in the immediate rejection of my appeal and potential legal consequences as prescribed by state law.</li>
+<li>TaxAppeal Pro acts solely as a filing agent based on the data I have provided and does not guarantee a specific reduction in property assessment.</li>
+<li>I am the owner of the subject property or a legally authorized representative thereof.</li>
+</ul>
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed mt-4">
+                                By signing below, I authorize TaxAppeal Pro to act as my agent in filing this appeal with the relevant county assessment board and to receive all correspondence related to this matter.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Signature Section -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 md:p-8">
+<h3 class="font-bold text-lg text-slate-900 dark:text-white mb-4">Digital Signature</h3>
+<div class="relative w-full h-48 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 flex flex-col items-center justify-center group hover:border-primary transition-colors cursor-crosshair">
+<!-- Placeholder for signature interaction -->
+<span class="absolute top-4 left-4 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider select-none">Sign Here</span>
+<div class="text-center pointer-events-none opacity-40 group-hover:opacity-60 transition-opacity">
+<span class="material-symbols-outlined text-4xl text-slate-400 dark:text-slate-500 mb-2">draw</span>
+<p class="text-sm text-slate-500 dark:text-slate-400">Draw your signature with your mouse or finger</p>
+</div>
+<!-- Clear button absolute positioned -->
+<button class="absolute top-2 right-2 p-2 text-slate-400 hover:text-red-500 transition-colors" title="Clear Signature">
+<span class="material-symbols-outlined text-xl">refresh</span>
+</button>
+</div>
+<div class="mt-6">
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 rounded border-slate-300 dark:border-slate-600 text-primary focus:ring-primary/20 dark:focus:ring-offset-slate-900 bg-transparent transition-all checked:bg-primary checked:border-primary" type="checkbox"/>
+</div>
+<div class="text-sm leading-snug">
+<span class="font-medium text-slate-900 dark:text-white group-hover:text-primary transition-colors">I accept the terms of the declaration.</span>
+<p class="text-slate-500 dark:text-slate-400 mt-0.5">I understand this electronic signature is legally binding.</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Right Column: Summary/Status -->
+<div class="lg:col-span-1 space-y-6">
+<!-- Progress Card -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-5">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Appeal Progress</h4>
+<div class="relative pl-4 border-l-2 border-slate-200 dark:border-slate-700 space-y-6">
+<div class="relative">
+<div class="absolute -left-[21px] top-1 h-3 w-3 rounded-full bg-primary ring-4 ring-white dark:ring-slate-900"></div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Property Details</p>
+<p class="text-xs text-slate-500">Completed</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1 h-3 w-3 rounded-full bg-primary ring-4 ring-white dark:ring-slate-900"></div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Comparables Analysis</p>
+<p class="text-xs text-slate-500">Completed</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1 h-3 w-3 rounded-full bg-primary ring-4 ring-white dark:ring-slate-900 animate-pulse"></div>
+<p class="text-sm font-bold text-primary">Sign &amp; Submit</p>
+<p class="text-xs text-slate-500">In Progress</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[21px] top-1 h-3 w-3 rounded-full bg-slate-300 dark:bg-slate-600 ring-4 ring-white dark:ring-slate-900"></div>
+<p class="text-sm font-medium text-slate-400 dark:text-slate-500">Confirmation</p>
+<p class="text-xs text-slate-500">Pending</p>
+</div>
+</div>
+</div>
+<!-- Property Summary Mini Card -->
+<div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-5 border border-slate-200 dark:border-slate-800">
+<h4 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">Property Reference</h4>
+<div class="flex items-start gap-3">
+<div class="bg-white dark:bg-slate-700 rounded p-2 text-slate-400 dark:text-slate-300">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white text-sm">1248 Oakwood Drive</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Springfield, IL 62704</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">ID: #AP-2023-8942</p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="sticky top-24 pt-4">
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-primary/20 transition-all transform hover:-translate-y-0.5">
+<span>Submit Appeal</span>
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+<p class="text-center text-xs text-slate-400 dark:text-slate-500 mt-3">
+<span class="material-symbols-outlined align-middle text-[14px] mr-1">lock</span>
+                        Secure SSL Encryption
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark py-8 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+<p class="text-sm text-slate-500 dark:text-slate-400">© 2023 TaxAppeal Pro. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

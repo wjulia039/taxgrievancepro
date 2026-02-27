@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Report Generation Success Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Navbar -->
+<nav class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-icons-round text-xl">home_work</span>
+</div>
+<span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">TaxAppeal<span class="text-primary">.io</span></span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="hover:text-primary transition-colors" href="#">My Properties</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-slate-300 dark:border-slate-600">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="User profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBie0kcCLjrBRdkCLdvLA66xDtEfuK0sQI3M61HNfR5I_ISIJsomW1Sj_X2RTjvC7RazfjFADKIg1SH_bLx0EfW6LsRX0Fvfire0xrkzdwsdoZSnj_47qYd9jfI7vORfNosgWjmAxmvI3t_k0WjkW3pd1kRyyjNa2sE_dEu2Li2prnn-kCg7EYwtX_OqQKX0pC8v8_lbzzKg6xFeuh0H0w5aNF5jxs-xSH0mC5_aCdffOtCvdbl1r8UVeCcou2vj6WjAMNBdwrRL8lF"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
+<div class="max-w-5xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+<!-- Left Column: Success Message & Actions -->
+<div class="space-y-8 order-2 lg:order-1">
+<div class="space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-semibold border border-green-200 dark:border-green-800">
+<span class="material-icons-round text-base">check_circle</span>
+                        Analysis Complete
+                    </div>
+<h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
+                        Your Property Tax Report is Ready!
+                    </h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg">
+                        Good news! We've identified discrepancies in your assessment. Based on comparable sales in <span class="font-semibold text-slate-900 dark:text-slate-200">Fairfield County</span>, you are eligible for an appeal.
+                    </p>
+</div>
+<!-- Key Findings Card -->
+<div class="bg-white dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-icons-round text-8xl text-primary">savings</span>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-6">
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Estimated Savings</p>
+<p class="text-3xl font-bold text-primary">$1,245<span class="text-lg text-slate-400 dark:text-slate-500 font-normal">/yr</span></p>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Success Probability</p>
+<div class="flex items-center gap-2">
+<p class="text-3xl font-bold text-slate-900 dark:text-white">High</p>
+<span class="material-icons-round text-green-500">trending_up</span>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-3">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary">
+<span class="material-icons-round">analytics</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 dark:text-white">Over-assessment detected</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Your building value is 12% higher than neighborhood average.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-4 pt-2">
+<button class="flex-1 bg-primary hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg shadow-lg shadow-blue-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3 group">
+<span class="material-icons-round group-hover:animate-bounce">download</span>
+                        Download PDF Report
+                    </button>
+<button class="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-3">
+<span class="material-icons-round">email</span>
+                        Email to Myself
+                    </button>
+</div>
+<p class="text-xs text-slate-400 dark:text-slate-500 text-center sm:text-left">
+                    Report generated on Oct 24, 2023. Valid for the 2024 tax year appeals window.
+                </p>
+</div>
+<!-- Right Column: Document Preview -->
+<div class="order-1 lg:order-2 flex justify-center lg:justify-end relative">
+<!-- Decorative background blob -->
+<div class="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-blue-100 via-purple-50 to-transparent dark:from-blue-900/20 dark:via-slate-800/40 dark:to-transparent rounded-full blur-3xl opacity-60"></div>
+<div class="relative group perspective-1000">
+<!-- PDF Card Container -->
+<div class="w-full max-w-sm mx-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-200 dark:border-slate-700 overflow-hidden transform transition-all duration-500 hover:scale-[1.02] hover:rotate-1">
+<!-- Header of the Document Preview -->
+<div class="bg-slate-50 dark:bg-slate-900/50 p-4 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-red-400"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+<div class="w-3 h-3 rounded-full bg-green-400"></div>
+</div>
+<div class="text-xs font-mono text-slate-400">report_final.pdf</div>
+</div>
+<!-- Document Visual Content -->
+<div class="p-6 space-y-4 bg-white dark:bg-white relative">
+<!-- Watermark/Overlay for preview feeling -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/90 z-10 flex flex-col items-center justify-end pb-8 pointer-events-none">
+<div class="bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20 flex items-center gap-2">
+<span class="material-icons-round text-primary text-sm">visibility</span>
+<span class="text-primary text-xs font-bold uppercase tracking-wider">Preview</span>
+</div>
+</div>
+<!-- Mock Document Header -->
+<div class="flex justify-between items-start mb-6">
+<div class="space-y-2">
+<div class="w-32 h-4 bg-slate-200 rounded"></div>
+<div class="w-24 h-3 bg-slate-100 rounded"></div>
+</div>
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+<span class="material-icons-round text-primary text-2xl">gavel</span>
+</div>
+</div>
+<!-- Mock Map/Chart Area -->
+<div class="w-full h-32 bg-slate-100 rounded-lg overflow-hidden relative">
+<img alt="Map of residential neighborhood for property assessment context" class="w-full h-full object-cover opacity-80" data-alt="Map of residential neighborhood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDndckCzxo05qXo3nc-A3wHuvHaOym7ZkGyPFFf-bO8FGZqEdMPxX93z9anpxSpCfDGUMuBw41a4MMQi3yrq2QOFNA3I9BQXLETB8iDnK_zc3SYJibHe5X6H0R0TNVfBD6IpYc8-AQkaIjkX_9n3InHXs9Cn_mHyiiyXtX3ig9uSlCJ8O5kzSq9RVuO62JLBeLfr1mEDTAzHJRI3vdGWOzLpGkzeO5u9UG5hLpLxZhONrbxi5gQm8m2Yg-oivc9mTzWVp5EUz90TMR1"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg"></div>
+</div>
+</div>
+<!-- Mock Text Lines -->
+<div class="space-y-2 pt-2">
+<div class="w-full h-2 bg-slate-100 rounded"></div>
+<div class="w-5/6 h-2 bg-slate-100 rounded"></div>
+<div class="w-4/6 h-2 bg-slate-100 rounded"></div>
+</div>
+<!-- Mock Table -->
+<div class="border border-slate-100 rounded-lg p-3 mt-4 space-y-2">
+<div class="flex justify-between">
+<div class="w-16 h-2 bg-slate-200 rounded"></div>
+<div class="w-10 h-2 bg-slate-200 rounded"></div>
+</div>
+<div class="w-full h-px bg-slate-100"></div>
+<div class="flex justify-between">
+<div class="w-20 h-2 bg-slate-100 rounded"></div>
+<div class="w-12 h-2 bg-slate-100 rounded"></div>
+</div>
+<div class="flex justify-between">
+<div class="w-14 h-2 bg-slate-100 rounded"></div>
+<div class="w-8 h-2 bg-slate-100 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Badge -->
+<div class="absolute -right-4 top-10 bg-white dark:bg-slate-700 text-slate-800 dark:text-white px-4 py-2 rounded-lg shadow-xl border border-slate-100 dark:border-slate-600 flex items-center gap-3 animate-pulse">
+<div class="w-2 h-2 bg-green-500 rounded-full"></div>
+<span class="text-sm font-semibold">Ready for Appeal</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Next Steps Section (Bottom of Main) -->
+<div class="max-w-5xl w-full mx-auto mt-16 sm:mt-24 border-t border-slate-200 dark:border-slate-800 pt-10">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Recommended Next Steps</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold mb-4 border border-slate-200 dark:border-slate-700">1</div>
+<h4 class="font-semibold text-slate-900 dark:text-white mb-2">Review the PDF</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Check the comparable properties we selected to ensure they match your home's characteristics.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold mb-4 border border-slate-200 dark:border-slate-700">2</div>
+<h4 class="font-semibold text-slate-900 dark:text-white mb-2">Sign the Appeal Form</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">The last page of the PDF is the official appeal form. Print, sign, and date it.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-white dark:bg-slate-900 p-5 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-primary/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold mb-4 border border-slate-200 dark:border-slate-700">3</div>
+<h4 class="font-semibold text-slate-900 dark:text-white mb-2">Submit by Nov 15th</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Mail the package to your County Assessor's office. Address is provided in the report.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>
