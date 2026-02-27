@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
 
-import { Loader } from '@googlemaps/js-api-loader';
+import { importLibrary, setOptions } from '@googlemaps/js-api-loader';
 import { AlertTriangle, CheckCircle, MapPin, Search, X } from 'lucide-react';
 
 // ── Types ──────────────────────────────────────────────────────────────────
@@ -84,13 +84,9 @@ export default function CheckPage() {
       return;
     }
 
-    const loader = new Loader({
-      apiKey,
-      version: 'weekly',
-      libraries: ['places'],
-    });
+    setOptions({ apiKey, version: 'weekly' });
 
-    loader.load().then(() => {
+    importLibrary('places').then(() => {
       autocompleteService.current =
         new window.google.maps.places.AutocompleteService();
       const dummy = document.createElement('div');
