@@ -84,7 +84,7 @@ export default function CheckPage() {
       return;
     }
 
-    setOptions({ apiKey, version: 'weekly' });
+    setOptions({ key: apiKey, v: 'weekly' });
 
     importLibrary('places').then(() => {
       autocompleteService.current =
