@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { after } from "next/server";
 import Stripe from "stripe";
 import { getSupabaseServerAdminClient } from "@kit/supabase/server-admin-client";
 import { OrderService } from "~/lib/services/order.service";
@@ -56,8 +57,18 @@ export async function POST(request: NextRequest) {
 
         await orderService.transition(existingOrder.id, OrderStatus.PAYMENT_PENDING, OrderStatus.PAID);
         logAuditEvent(supabase, { user_id: existingOrder.user_id, event_type: AuditEventType.PAYMENT_SUCCEEDED, entity_type: AuditEntityType.ORDER, entity_id: existingOrder.id });
-        const reportService = new ReportService(supabase);
-        reportService.generate(existingOrder.id).catch((err) => console.error(`[stripe-webhook] Report gen failed:`, err));
+
+        // Use after() to keep the serverless function alive for report generation
+        // after the response is sent (fire-and-forget gets killed on Vercel)
+        const orderId = existingOrder.id;
+        after(async () => {
+          try {
+            const reportService = new ReportService(getSupabaseServerAdminClient());
+            await reportService.generate(orderId);
+          } catch (err) {
+            console.error(`[stripe-webhook] Report gen failed for order ${orderId}:`, err);
+          }
+        });
         break;
       }
       case "payment_intent.payment_failed": {
