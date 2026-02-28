@@ -45,6 +45,7 @@ export async function POST(request: NextRequest) {
       mode: "payment", payment_method_types: ["card"],
       line_items: [{ price_data: { currency: "usd", product_data: { name: "TaxGrievancePro Report", description: "Tax grievance eligibility report with comparable sales" }, unit_amount: Math.round(config.REPORT_PRICE_USD * 100) }, quantity: 1 }],
       metadata: { order_id: orderId, user_id: user.id },
+      payment_intent_data: { metadata: { order_id: orderId, user_id: user.id } },
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/home/reports?highlight=${orderId}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/home`,
     });

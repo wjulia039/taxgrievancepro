@@ -28,11 +28,32 @@ export async function POST(request: NextRequest) {
     switch (event.type) {
       case "payment_intent.succeeded": {
         const paymentIntent = event.data.object as Stripe.PaymentIntent;
-        const existingOrder = await orderService.getByPaymentIntent(paymentIntent.id);
-        if (existingOrder && existingOrder.status !== OrderStatus.PAYMENT_PENDING) {
+        let existingOrder = await orderService.getByPaymentIntent(paymentIntent.id);
+
+        // Fallback: look up order via payment intent metadata (handles case
+        // where payment_intent_id wasn't stored at checkout session creation)
+        if (!existingOrder && paymentIntent.metadata?.order_id) {
+          existingOrder = await orderService.getById(paymentIntent.metadata.order_id);
+          if (existingOrder) {
+            // Back-fill the payment_intent_id; setPaymentIntent also
+            // transitions CREATED → PAYMENT_PENDING
+            if (existingOrder.status === OrderStatus.CREATED) {
+              await orderService.setPaymentIntent(existingOrder.id, paymentIntent.id);
+              existingOrder = await orderService.getById(existingOrder.id);
+            }
+          }
+        }
+
+        if (!existingOrder) {
+          console.warn("[stripe-webhook] No order found for PI", paymentIntent.id);
           return NextResponse.json({ received: true }, { status: 200 });
         }
-        if (!existingOrder) return NextResponse.json({ received: true }, { status: 200 });
+
+        // Already processed or in a terminal state
+        if (existingOrder.status !== OrderStatus.PAYMENT_PENDING) {
+          return NextResponse.json({ received: true }, { status: 200 });
+        }
+
         await orderService.transition(existingOrder.id, OrderStatus.PAYMENT_PENDING, OrderStatus.PAID);
         logAuditEvent(supabase, { user_id: existingOrder.user_id, event_type: AuditEventType.PAYMENT_SUCCEEDED, entity_type: AuditEntityType.ORDER, entity_id: existingOrder.id });
         const reportService = new ReportService(supabase);
@@ -41,7 +62,11 @@ export async function POST(request: NextRequest) {
       }
       case "payment_intent.payment_failed": {
         const pi = event.data.object as Stripe.PaymentIntent;
-        const order = await orderService.getByPaymentIntent(pi.id);
+        let order = await orderService.getByPaymentIntent(pi.id);
+        // Fallback: look up by metadata
+        if (!order && pi.metadata?.order_id) {
+          order = await orderService.getById(pi.metadata.order_id);
+        }
         if (order) {
           // PRD §7: PAYMENT_PENDING can only go to PAID or CANCELED (not FAILED)
           if (order.status === OrderStatus.PAYMENT_PENDING) {
