@@ -68,7 +68,7 @@ export default function ReportsPage() {
           formatted_address: o.prechecks.properties.formatted_address,
         },
       },
-      report: o.reports?.[0] ?? null,
+      report: Array.isArray(o.reports) ? (o.reports[0] ?? null) : (o.reports ?? null),
     }));
 
     setOrders(mapped);
